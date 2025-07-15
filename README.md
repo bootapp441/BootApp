@@ -77,6 +77,9 @@ bootapp/
 ├── panel.html                 # UI popup panel with feature overview
 ├── manifest.json              # WebExtension manifest
 └── README.md                  # You're here
+```
+
+---
 
 ## ⚠️ Disclaimer
 
