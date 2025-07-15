@@ -1,0 +1,309 @@
+{
+  "manifest_version": 3,
+  "name": "BootApp",
+  "description": "Automate Bootleggers gameplay with jail-busts, auto-theft, bootlegging alerts, and more.",
+  "version": "2.32",
+  "action": {
+    "default_popup": "panel.html",
+    "default_icon": "./img/bootscan.png",
+    "default_title": "BootApp - Bootleggers Automation"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "extension@bootapp.bl.x"
+    }
+  },
+  "host_permissions": [
+    "https://www.bootleggers.us/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.bootleggers.us/*"
+      ],
+      "js": [
+        "jquery/jquery-3.7.1.js",
+        "js/style-char.js",
+        "js/open-stamps.js",
+        "js/open-housekeeping.js",
+        "js/jail/jail-general.js",
+        "js/car-actions.js",
+        "js/car-markdown.js",
+        "js/key-binds.js",
+        "js/module-captcha-combine.js",
+        "js/module-tail-city.js",
+        "js/stickytab/sticky-tab.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/crimes.php"
+      ],
+      "js": [
+        "js/config/configuration-tab.js",
+        "js/config/configuration-crime.js",
+        "js/config/configuration-oc.js",
+        "js/config/configuration-factory.js",
+        "js/config/configuration-key-binding.js",
+        "js/config/configuration-captcha.js",
+        "js/config/configuration-style.js",
+        "js/config/configuration-gold.js",
+        "js/config/configuration-sticky-tab.js",
+        "js/config/configuration-discord.js",
+        "js/crime/crimes-checkbox.js",
+        "js/crime/crimes-all.js",
+        "js/crime/crimes-daily.js",
+        "js/crime/module-energy.js",
+        "js/crime/module-loading.js",
+        "js/crime/module-jammed.js",
+        "js/crime/module-crime-phrases.js",
+        "js/open-clean-auto.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/auto-theft.php"
+      ],
+      "js": [
+        "js/crime/auto-theft-checkbox.js",
+        "js/crime/auto-theft-all.js",
+        "js/crime/module-crime-phrases.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/speakeasy/?id=3",
+        "https://www.bootleggers.us/speakeasy/?id=4",
+        "https://www.bootleggers.us/speakeasy/?id=5",
+        "https://www.bootleggers.us/speakeasy/"
+      ],
+      "js": [
+        "js/module-speakeasy.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/orgcrime.php"
+      ],
+      "js": [
+        "js/oc/leader-0-travel.js",
+        "js/oc/leader-1-host.js",
+        "js/oc/leader-2-share.js",
+        "js/oc/leader-3-invite.js",
+        "js/oc/leader-4-commit.js",
+        "js/oc/participant-0-travel-join.js",
+        "js/oc/participant-1-equip-ready.js",
+        "js/oc/oc-boost-timer.js",
+        "js/oc/refresh.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/gym.php"
+      ],
+      "js": [
+        "js/module-gym-banana.js",
+        "js/module-gym-exercise.js",
+        "js/crime/module-energy.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/escrow.php"
+      ],
+      "js": [
+        "js/escrow.js"
+      ],
+      "run_at": "document_start"
+    },
+        {
+      "matches": [
+        "https://www.bootleggers.us/events/hot-dog-eating-contest.php"
+      ],
+      "js": [
+        "js/hot-dog-eating-contest.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/bootlegging.php"
+      ],
+      "js": [
+        "js/booze/module-car-display.js",
+        "js/booze/booze-nego.js",
+        "js/booze/booze-best-car.js",
+        "js/booze/booze-topup.js",
+        "js/booze/booze-supply.js",
+        "js/booze/booze-lemo.js",
+        "js/booze/booze-sell.js",
+        "js/booze/booze-ready-drive.js",
+        "js/booze/booze-ready-train-and-roaming.js",
+        "js/booze/booze-alert.js",
+        "js/booze/booze-selection-first.js",
+        "js/booze/booze-selection-8125.js",
+        "js/booze/booze-selection-5000.js",
+        "js/booze/booze-selection-2625.js",
+        "js/booze/booze-selection-1750.js",
+        "js/booze/module-booze-phrases.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/jail.php"
+      ],
+      "js": [
+        "js/jail/jail-leavenworth-jail-me.js",
+        "js/jail/jail-leavenworth-jail-selfbust.js",
+        "js/jail/jail-leavenworth-speedy-100-partyhostonly.js",
+        "js/jail/jail-leavenworth-speedy-100-ccmode.js",
+        "js/jail/jail-leavenworth-speedy-100-ccmoderandom.js",
+        "js/jail/jail-leavenworth-speedy-100-prio.js",
+        "js/jail/jail-leavenworth-speedy-100-priocrew.js",
+        "js/jail/jail-leavenworth-speedy-300-bustreward.js",
+        "js/jail/jail-leavenworth-speedy-300-crewonly.js",
+        "js/jail/jail-leavenworth-speedy-300-prio.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/race.php"
+      ],
+      "js": [
+        "js/race.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/shooting-range.php"
+      ],
+      "js": [
+        "js/range/sr.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/gold.php?page=6"
+      ],
+      "js": [
+        "js/gold/alert-manual.js",
+        "js/gold/alert-automated.js",
+        "js/gold/buying.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/user/HotDogCartGuy"
+      ],
+      "js": [
+        "js/hotdogcartguy.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/stamp-album.php"
+      ],
+      "js": [
+        "js/stamp-album.js",
+        "js/stamp-album-text.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/casino/poker-run.php"
+      ],
+      "js": [
+        "js/poker-run.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/cities.php"
+      ],
+      "js": [
+        "js/cities-overview.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/stats.php"
+      ],
+      "js": [
+        "js/stats.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/events/prize-wheel.php?id=1"
+      ],
+      "js": [
+        "js/prize-wheel-1.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/bullet-factory.php"
+      ],
+      "js": [
+        "js/bullet-factory-buy.js",
+        "js/bullet-factory-melt.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/forum_new/index.php?flag=1&goto=616827"
+      ],
+      "js": [
+        "js/forum-spike.js",
+        "js/open-clean-auto.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/events/prize-wheel.php?id=3"
+      ],
+      "js": [
+        "js/prize-wheel-3.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/rackets.php"
+      ],
+      "js": [
+        "js/rackets.js",
+        "js/open-clean-auto.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.bootleggers.us/*"
+      ],
+      "js": [
+        "js/style-boss.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
