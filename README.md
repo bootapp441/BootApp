@@ -55,7 +55,7 @@ BootApp automatically enhances multiple areas of gameplay:
 
 ### 🧭 Chrome
 
-1. Clone this repo.
+1. Clone this repo or download "Package v3.xx.zip"
 2. Visit `chrome://extensions/` and enable **Developer Mode**.
 3. Click **"Load unpacked"** and select the cloned folder.
 
