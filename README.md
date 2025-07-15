@@ -49,7 +49,7 @@ BootApp automatically enhances multiple areas of gameplay:
 
 ### 🦊 Firefox
 
-1. Clone this repo.
+1. Clone this repo or download "Package v3.xx.zip"
 2. Visit `about:debugging` → "This Firefox" → "Load Temporary Add-on".
 3. Select the `manifest.json` from the cloned directory.
 
