@@ -6,7 +6,7 @@
 
 ## 🧩 Features Overview
 
-BootApp automatically enhances multiple areas of gameplay:
+BootApp enhances multiple areas of gameplay. All automation features can be **ENABLED** or **DISABLED** via a Configuration Tab on the Crimes page:
 
 | Feature | Description |
 |--------|-------------|
@@ -77,3 +77,19 @@ bootapp/
 ├── panel.html                 # UI popup panel with feature overview
 ├── manifest.json              # WebExtension manifest
 └── README.md                  # You're here
+
+## ⚠️ Disclaimer
+
+**BootApp is provided “as-is” without any express or implied warranties.**
+
+This extension is developed purely for **educational and personal use** with [Bootleggers.us](https://www.bootleggers.us). Although it has been **tested thoroughly**, you use it entirely **at your own risk**.
+
+The developer of BootApp:
+
+- Is **not responsible** for how you use this extension.
+- **Disclaims all liability** for bans, account issues, or other outcomes related to its use.
+- Does **not guarantee compatibility** with future updates or rule changes on Bootleggers.us.
+
+By using this tool, you accept **full responsibility** and agree that the developer shall **not be held liable** for any direct or indirect damages resulting from its usage.
+
+> ⚠️ **Note:** Automation is **not allowed** under the [Bootleggers.us](https://www.bootleggers.us) game rules. Use BootApp at your own risk — **don't get caught!**
