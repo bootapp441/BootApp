@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return webhookFromStorage;
         }
 
-        async function sendWebhook(S, message, color) {
+        async function sendWebhook(username, message, color) {
             const webhookUrl = getUserWebhook(username);
             if (!webhookUrl) return;
 
@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 contentType: 'application/json',
                 data: JSON.stringify({ embeds: [{ description: message, color: color }] })
             });
-
         }
 
         /* =================== Solver =================== */
@@ -190,7 +189,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 return; // end monitor logic
             }
-
 
             // ✅ Global solve lock (all tabs respect it)
             if (localStorage.getItem(SOLVING_FLAG) === 'true') {
