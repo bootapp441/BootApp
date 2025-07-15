@@ -59,6 +59,10 @@ BootApp automatically enhances multiple areas of gameplay:
 2. Visit `chrome://extensions/` and enable **Developer Mode**.
 3. Click **"Load unpacked"** and select the cloned folder.
 
+### 🧩 Chrome App Store
+
+1. Search for BootApp.
+
 ---
 
 ## 📦 Project Structure
