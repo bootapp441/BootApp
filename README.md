@@ -53,6 +53,12 @@ BootApp enhances multiple areas of gameplay. All automation features can be **EN
 2. Visit `about:debugging` → "This Firefox" → "Load Temporary Add-on".
 3. Select the `manifest.json` from the cloned directory.
 
+### 🚀 Edge
+
+1. Clone this repo or download "Package v3.xx.zip"
+2. Visit `edge://extensions/` → "Enable Developer Mode" → "Load Unpacked".
+3. Select the `manifest.json` from the cloned directory.
+
 ### 🧭 Chrome
 
 1. Clone this repo or download "Package v3.xx.zip"
