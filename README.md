@@ -67,7 +67,7 @@ BootApp enhances multiple areas of gameplay. All automation features can be **EN
 
 ### 🧩 [Chrome Web Store](https://chromewebstore.google.com/detail/bootapp/koahihmmfgdfobdfoknfadeidekholeh)
 
-1. Search for [BootApp](https://chromewebstore.google.com/detail/bootapp/koahihmmfgdfobdfoknfadeidekholeh)
+1. Search for [BootApp](https://chromewebstore.google.com/detail/bootapp/koahihmmfgdfobdfoknfadeidekholeh) to be released.
 
 ---
 
