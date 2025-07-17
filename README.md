@@ -1,6 +1,6 @@
 # 🚀 BootApp – Bootleggers.us Automation Extension
 
-**BootApp** is a powerful Chrome/Firefox extension designed to automate and streamline various gameplay tasks on [Bootleggers.us](https://www.bootleggers.us). From auto-crimes and bullet buying to Discord alerts and energy management — BootApp boosts your efficiency while keeping you ahead of the game.
+**BootApp** is a powerful Edge/Chrome/Firefox extension designed to automate and streamline various gameplay tasks on [Bootleggers.us](https://www.bootleggers.us). From auto-crimes and bullet buying to Discord alerts and energy management — BootApp boosts your efficiency while keeping you ahead of the game.
 
 ---
 
