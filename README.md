@@ -78,7 +78,7 @@ BootApp enhances multiple areas of gameplay. All automation features can be **EN
 ```bash
 bootapp/
 │
-├── bootstrap/                  # UI styling (Bootstrap CSS/JS)
+├── bootstrap/                 # UI styling (Bootstrap CSS/JS)
 ├── jquery/                    # jQuery
 ├── js/                        # All automation scripts (grouped by feature)
 ├── img/                       # Icons for extension
@@ -104,4 +104,5 @@ The developer of BootApp:
 By using this tool, you accept **full responsibility** and agree that the developer shall **not be held liable** for any direct or indirect damages resulting from its usage.
 
 > ⚠️ **Note:** Automation is **not allowed** under the [Bootleggers.us](https://www.bootleggers.us) game rules. Use BootApp at your own risk — **don't get caught!**
+
 
