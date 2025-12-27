@@ -1,9 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     $(document).ready(function () {
 
-        /* ======== CONFIG ======== */
-        const webhookURL = 'https://discord.com/api/webhooks/1307317077807468574/mBPY_2Dwp3_ZvNIKsIfrnm_ReSRfeT9Z0VJjJmKDBLXfO-IEWiob5mg0Xcm9BJef--Lq';
-
         /* ======== HELPERS ======== */
         function getUsername() {
             const usernameDiv = document.querySelector('.character-container .username a');
@@ -11,8 +8,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         function sendWebhookMessage(description) {
-            const data = { embeds: [{ description: description, color: 0x800080 }] };
-            $.ajax({ url: webhookURL, method: 'POST', contentType: 'application/json', data: JSON.stringify(data) });
+            const discordEnabled = localStorage.getItem('discord.enabled') === 'true';
+            const webhookURL = localStorage.getItem('discord.webhook.8'); // Auto Theft webhook
+
+            if (discordEnabled && webhookURL) {
+                const data = { embeds: [{ description: description, color: 0x800080 }] };
+                $.ajax({
+                    url: webhookURL,
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    success: () => console.log('[Webhook] Auto Theft message sent.'),
+                    error: (xhr, status, error) => console.error('[Webhook Error]', xhr.status, error)
+                });
+            } else {
+                console.log('[Webhook] Skipped: discord.enabled=false or webhook.6 is empty.');
+            }
         }
 
         /* ======== CAPTCHA CHECK HELPDER SCRIPTS ======== */
@@ -22,53 +33,23 @@ document.addEventListener('DOMContentLoaded', function () {
             const solvedAt = parseInt(localStorage.getItem('captcha.solvedAt') || '0', 10);
             const blockDuration = parseInt(localStorage.getItem('captcha.blockDuration') || '120000', 10);
             const now = Date.now();
-        
+
             // If solving started recently, we block actions
             if (solvingSince && (now - solvingSince < blockDuration)) {
                 return true;
             }
-        
+
             // If solving was completed recently, still block actions temporarily
             if (solvedAt && (now - solvedAt < blockDuration)) {
                 return true;
             }
-        
+
             return false;
         }
 
         function handleCaptchaDetected() {
             if (!isCaptchaActive()) return;
             console.log("[Captcha] Detected, clicks paused until solved.");
-        }
-
-        /* ======== CAR CHECK ======== */
-        function checkForCarAtRestaurant() {
-            const restCarContainer = document.querySelector('.crime[data-id="4"]');
-            if (!restCarContainer) return;
-
-            const restCar = restCarContainer.querySelector('.car-image');
-            if (!restCar || restCar.innerHTML.trim() === '') return;
-
-            const recentEvent = restCarContainer.querySelector('.events-box .steal-event .message')?.textContent || '';
-            const timeAgo = restCarContainer.querySelector('.events-box .steal-event .time-ago')?.textContent || '';
-            const cityName = document.querySelector('.player-location .city-name')?.textContent || '';
-            const username = getUsername();
-            const carArrivalIdentifier = `${cityName}: ${recentEvent} ${timeAgo} (${username})`;
-
-            if (!localStorage.getItem(carArrivalIdentifier)) {
-                sendWebhookMessage(carArrivalIdentifier);
-                localStorage.setItem(carArrivalIdentifier, 'true');
-                console.log("Car arrival reported successfully.");
-            }
-        }
-
-        function checkStealOutcome(username) {
-            const restCarAfter = document.querySelector('.crime[data-id="4"] .car-image');
-            if (!restCarAfter || restCarAfter.innerHTML.trim() === '') {
-                // sendWebhookMessage(`Car successfully stolen by ${username}.`);
-            } else {
-                //sendWebhookMessage(`Steal attempt failed by ${username}, car is still present.`);
-            }
         }
 
         /* ======== CRIME ATTEMPT ======== */
@@ -134,12 +115,12 @@ document.addEventListener('DOMContentLoaded', function () {
         function handleChoices() {
             const jammedDiv = document.querySelector('.BL-jammed-up.show');
             if (!jammedDiv) return;
-            
+
             const shootButton = jammedDiv.querySelector('input[data-choice="shoot"]');
             const runButton = jammedDiv.querySelector('input[data-choice="run"]');
             const shootChance = parseFloat(jammedDiv.querySelector('.shoot-chance')?.textContent.replace('%', '') || 0);
             const runChance = parseFloat(jammedDiv.querySelector('.run-chance')?.textContent.replace('%', '') || 0);
-            
+
             if (isCaptchaActive()) { handleCaptchaDetected(); return; }
             if (shootChance > runChance && shootButton) shootButton.click();
             else if (runButton) runButton.click();
@@ -155,7 +136,5 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(() => { if (!isCaptchaActive()) attemptCrimes(); }, Math.random() * 1000 + 1000);
 
         scheduleRandomInterval();
-        checkForCarAtRestaurant();
-
     });
 });
